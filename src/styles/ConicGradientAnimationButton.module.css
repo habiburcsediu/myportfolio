@@ -1,0 +1,34 @@
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.outer_div {
+  width: 250px;
+  height: 50px;
+  border-radius: 7px;
+  background-image: conic-gradient(from var(--angle) at 50% 50%, #e2cbff 0%, #393bb2 50%, #e2cbff 100%);
+  position: relative;
+  animation: spin 5s linear infinite;
+  cursor: pointer;
+}
+
+@keyframes spin {
+    0% {
+        --angle: 0deg;
+    }
+    100% {
+        --angle: 360deg;
+    }
+}
+.inner_div {
+    position: absolute;
+    inset: 1px;
+    background-color: #020617;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
