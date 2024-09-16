@@ -6,8 +6,8 @@ export default function Navbar() {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="fixed z-[2] left-[20px] md:left-[40px] top-9 right-[20px] md:right-[40px] flex items-center justify-between bg-[#000319]">
-      <div className="w-[120px] xs:w-[240px] md:w-[500px] border border-[#16192D] rounded-md px-3 py-2 flex items-center justify-between">
+    <div className="fixed z-[2] left-[20px] md:left-[40px] top-9 right-[20px] md:right-[40px] flex items-center justify-between">
+      <div className="w-[120px] xs:w-[240px] md:w-[500px] bg-[#000319] border border-[#16192D] rounded-md px-3 py-2 flex items-center justify-between">
         <div className="flex items-center justify-center gap-2 cursor-pointer">
           <img className="w-7 h-7 rounded-full" src={logo} alt="Logo" />
           <span className="text-lg font-semibold hidden xs:block">

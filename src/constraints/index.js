@@ -55,3 +55,40 @@ export const projects = [
     libraries: ["React", "Tailwind"],
   },
 ];
+
+export const inputs = [
+  {
+    label: "Name",
+    type: "text",
+    id: "name",
+    name: "name",
+    placeholder: "Enter your name",
+    autoComplete: 'off',
+  },
+  {
+    label: "Email",
+    type: "text",
+    id: "email",
+    name: "email",
+    placeholder: "Enter your email",
+    autoComplete: 'off',
+  },
+  {
+    label: "Subject",
+    type: "text",
+    id: "subject",
+    name: "subject",
+    placeholder: "Enter your subject",
+    autoComplete: 'off',
+  },
+  {
+    flag: 'textarea',
+    label: "Your Message",
+    id: "message",
+    name: "message",
+    placeholder: "Write your thoughts here...",
+    rows: 4,
+    cols: 20,
+    autoComplete: 'off',
+  },
+];

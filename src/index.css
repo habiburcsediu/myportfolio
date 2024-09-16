@@ -97,3 +97,21 @@
 .active {
   color: #8b5cf6;
 }
+
+/* making toast */
+@layer utilities {
+  .c-toast-slide {
+    animation-name: animate;
+    animation-duration: 2s;
+  }
+
+  @keyframes animate {
+    0% {
+      transform: translateY(-200%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
+
