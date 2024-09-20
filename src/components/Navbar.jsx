@@ -1,13 +1,21 @@
 import { useState } from "react";
 import logo from "../assets/images/habibur.jpeg";
 import { Link } from "react-scroll";
+import myCV from "../assets/cv-habibur.pdf";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const [toggle, setToggle] = useState(false);
 
   return (
     <div className="fixed z-[2] left-[20px] md:left-[40px] top-9 right-[20px] md:right-[40px] flex items-center justify-between">
-      <div className="w-[120px] xs:w-[240px] md:w-[500px] bg-[#000319] border border-[#16192D] rounded-md px-3 py-2 flex items-center justify-between">
+      <motion.div
+        initial={{ opacity: 0, y: -40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ type: "spring", stiffness: 500 }}
+        viewport={{ once: true }}
+        className="w-[120px] xs:w-[240px] md:w-[500px] bg-[#000319] border border-[#16192D] rounded-md px-3 py-2 flex items-center justify-between"
+      >
         <div className="flex items-center justify-center gap-2 cursor-pointer">
           <img className="w-7 h-7 rounded-full" src={logo} alt="Logo" />
           <span className="text-lg font-semibold hidden xs:block">
@@ -114,15 +122,23 @@ export default function Navbar() {
             </ul>
           </div>
         )}
-      </div>
-      <div>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: -40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        whileTap={{ scale: 0.9 }}
+        transition={{ type: "spring", stiffness: 500 }}
+        viewport={{ once: true }}
+      >
         <button
-          className="bg-[#38309D] px-8 py-[10px] rounded-md text-md font-semibold duration-300 hover:bg-transparent hover:ring-2"
+          className="bg-[#38309D] px-8 py-[12px] rounded-md text-md font-semibold duration-300"
           type="button"
         >
-          Hire Me
+          <a href={myCV} download="cv-habibur">
+            Download CV
+          </a>
         </button>
-      </div>
+      </motion.div>
     </div>
   );
 }

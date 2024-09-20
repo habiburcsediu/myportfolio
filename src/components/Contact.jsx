@@ -3,12 +3,16 @@ import ConicGradientAnimationButton from "../features/ConicGradientAnimationButt
 import { IoIosSend } from "react-icons/io";
 import { inputs } from "../constraints";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
 
 export default function Contact() {
   // form validation
   const initialValues = { name: "", email: "", subject: "", message: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
+
+  let counter;
 
   // form validation
   const validate = (values) => {
@@ -57,23 +61,37 @@ export default function Contact() {
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           {inputs.map((input, index) => {
             const name = input.name;
+            let counter = index / 10;
             return (
-              <InputBox
-                key={index}
-                {...input}
-                name={name}
-                formValues={formValues}
-                setFormValues={setFormValues}
-                formError={formErrors[name]}
-              />
+              <motion.div
+                variants={fadeIn("down", counter)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+              >
+                <InputBox
+                  key={index}
+                  {...input}
+                  name={name}
+                  formValues={formValues}
+                  setFormValues={setFormValues}
+                  formError={formErrors[name]}
+                />
+              </motion.div>
             );
           })}
-          <div className="flex justify-center">
+          <motion.div
+            variants={fadeIn("down", counter)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="flex justify-center"
+          >
             <ConicGradientAnimationButton>
               Send Message
               <IoIosSend />
             </ConicGradientAnimationButton>
-          </div>
+          </motion.div>
         </form>
       </div>
     </div>
